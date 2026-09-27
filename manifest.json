@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "nixfred.dockyard",
+  "name": "Dockyard",
+  "version": "1.0.0",
+  "author": "nixfred",
+  "license": "MIT",
+  "description": "Docker containers cockpit. A whale and the running count on the bar; the panel lists every container with state, CPU, memory, ports and uptime, with start, stop, restart and logs on a click. Also shows image disk usage, dangling images, build cache, GPU containers and a stale CDI spec check. Talks to the local Engine API socket; read-only unless you click.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Dockyard",
+    "description": "Running containers on the bar. Click for the cockpit.",
+    "category": "System",
+    "aliases": [
+      "docker",
+      "containers",
+      "dockyard",
+      "whale",
+      "podman"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshSec": 10
+    },
+    "schema": [
+      {
+        "key": "refreshSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "description": "How often the Engine API is polled. A poll is a few socket calls and cgroup reads.",
+        "min": 3,
+        "max": 300,
+        "defaultValue": 10
+      }
+    ]
+  },
+  "repository": "https://github.com/nixfred/dockyard.omarchy",
+  "homepage": "https://nixfred.com"
+}
